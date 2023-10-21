@@ -30,7 +30,7 @@ void loop() {
   digitalWrite(trigPin, LOW);
   duration = pulseIn(echoPin, HIGH);
   distance = duration * 0.034 / 2;
- if (distance > maxdistance ) maxdistance = distance;
+ if (distance < 1000 and distance > maxdistance ) maxdistance = distance;
  if (distance > 0 and distance < mindistance ) mindistance = distance;
   lcd.setCursor(0,0);
   lcd.print("Distance");
