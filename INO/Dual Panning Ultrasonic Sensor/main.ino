@@ -121,8 +121,20 @@ void loop() {
     lcd.print(position2);
   //--------------------
 
-  Serial.print("DIS=");
+  Serial.print("DIS1=");
   Serial.print(distance1);
-  Serial.print(",POS=");
-  Serial.println(position1);
-}
+   Serial.print(",POS1=");
+  Serial.print(position1);
+  Serial.print(",MIN1=");
+  Serial.print(mindistance1);
+  Serial.print(",MAX1=");
+  Serial.print(maxdistance1);
+   Serial.print(",DIS2=");
+  Serial.print(distance2);
+   Serial.print(",POS2=");
+  Serial.print(position2);
+  Serial.print(",MIN2=");
+  Serial.print(mindistance2);
+  Serial.print(",MAX2=");
+  Serial.println(maxdistance2);
+  }
