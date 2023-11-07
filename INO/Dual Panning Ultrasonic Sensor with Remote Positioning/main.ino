@@ -20,6 +20,8 @@ int maxdistance2;
 int mindistance2;
 Servo myservo2; 
 int position2;
+String cmd = "";
+String cmd1 = "";
 void setup() {
   maxdistance1=0;
   maxdistance2=120;
@@ -37,10 +39,25 @@ void loop() {
  
   if (Serial.available() > 0) {
     incomingByte = Serial.read();
-  position1++;
-   position2--;
+    position1++;
+    position2--;
     Serial.print("I received: ");
+    Serial.println(char(incomingByte));
     Serial.println(incomingByte);
+    if ( incomingByte == 13 ) {
+     Serial.print(cmd);
+     cmd1=cmd.substring(1,3);
+     Serial.print(cmd1);
+     Serial.println(" - Got Command");
+     if (cmd.substring(0,3)=="pos"){
+       Serial.println(" HIT ");
+
+     }
+     cmd="";
+    }else{
+      cmd = cmd + char(incomingByte);
+  
+    }
   }
   if (position1 > 120) position1 = 0, mindistance1=maxdistance1, maxdistance1=0;
    if (position2 < 1) position2 = 120, mindistance2=maxdistance2, maxdistance2=0;
